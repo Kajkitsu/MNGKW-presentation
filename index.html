@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Metody i narzędzia generowania kodu wykonywalnego</title>
+
+	<meta name="description" content="MNGKW LAB">
+	<meta name="author" content="Norbert Waszkowiak">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section data-background-gradient="linear-gradient(to bottom, #333, #1f7520)">
+				<h2>Metody i narzędzia generowania kodu wykonywalnego</h2>
+				<br slyle="height: 600px;" />
+				<p style="text-align: left;">ppor. mgr inż. Norbert Waszkowiak</p>
+				<div class="fragment" style="text-align: left;">
+					<small>nr tel.: 261 839 060</small>
+					<br />
+					<small>e-mail: norbert.waszkowiak@wat.edu.pl</small>
+					<br />
+					<small>pomieszczenie: bud. 100 pok. 254B</small>
+					<br />
+					<small>(zapraszam również do kontaktu przez MS Teams)</small>
+				</div>
+			</section>
+			<section>
+				<h2>Przeplanowanie zajęć</h2>
+			</section>
+			<section data-background-gradient="linear-gradient(to bottom, #000, #9c0101)">
+				<h2>Zasady oceniania</h2>
+				<small>
+					<ol>
+						<li>Każde przedstawione zadanie podlega ocenie 2-5;</li>
+						<li>W przypadku stwierdzenia niesamodzielności w wykonaniu pracy zostanie ona wliczona do
+							średniej
+							jako 0;</li>
+						<li>Ostateczna ocena z laboratoriów będzie wynikała ze średniej z wszystkich zadań
+							laboratoryjnych;
+						</li>
+						<li>Warunkiem zaliczenia jest oddanie wszystkich zadań laboratoryjnych w ustalonym terminie dla
+							każdego zadania.</li>
+					</ol>
+				</small>
+
+			</section>
+			<section>
+				<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
+					<h2>Zad 1: Wyrażenia regularne</h2>
+				</section>
+				<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
+					<h3>A komu to potrzebne? A dlaczego?</h3>
+					<small style="text-align: left;">Wyrażenia regularne - (ang. regular expression, w skrócie regex lub
+						regexp) - wzorzec
+						opisujący łańcuch symboli. Teoria wyrażeń regularnych jest związana z teorią języków
+						regularnych.</small>
+					<small style="text-align: left;"> Wyrażenia regularne mogą określać zbiór pasujących łańcuchów, jak
+						również wyszczególniać istotne części łańcucha.</small>
+				</section>
+				<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
+					<small style="text-align: left;">W praktyce znalazły bardzo szerokie zastosowanie, pozwalają bowiem
+						w
+						łatwy sposób opisywać wzorce tekstu, natomiast istniejące algorytmy w efektywny sposób
+						określają, czy podany ciąg znaków pasuje do wzorca lub wyszukują w tekście wystąpienia wzorca.
+					</small>
+					<small style="text-align: left;">Wyrażenia regularne w praktycznych zastosowaniach są zapisywane za
+						pomocą bogatszej i łatwiejszej w użyciu składni niż ta stosowana w rozważaniach teoretycznych.
+					</small>
+				</section>
+				<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
+					<h3>Pokaz z objaśnieniem</h3>
+					<p><a href="https://regex101.com/r/1B5osM/1">Przykład z grupami dziekańskimi</a></p>
+					<img src="assets/ss-regex.png" style="height: 500px;" />
+					<p>Dane:</p>
+					<small style="height: 1px; font-size: 6px;">WCY18IX1S3 ; WCY19IG1S1 ; WCY19IJ1N1 ;
+						WCY19IJ1S1 ; WCY19IJ2S1 ; WCY19IJ3S1 ; WCY19IJ4S1 ; WCY19IL1S0 ; WCY19IT1S0 ; WCY19IW1S0 ;
+						WCY19KA1S0 ; WCY19KB1S0 ; WCY19KC1S0 ; WCY19KC1S1 ; WCY19KS1S0 ; WCY19KS1S1 ; WCY20IG1S1 ;
+						WCY20IJ1N1 ; WCY20IJ1S1 ; WCY20IJ2S1 ; WCY20IJ3S1 ; WCY20IM1S1 ; WCY20IX1S0 ; WCY20IX2S0 ;
+						WCY20IX3S0 ; WCY20IX4S0 ; WCY20IX5S0 ; WCY20IX6S0 ; WCY20IY1S1 ; WCY20IY2S1 ; WCY20IY3S1 ;
+						WCY20IY4S1 ; WCY20IY5S1 ; WCY20KA1S1 ; WCY20KC1S1 ; WCY20KX1S0 ; WCY20KX2S0 ; WCY20KX3S0 ;
+						WCY20KX4S0 ; WCY20KY1S1 ; WCY20KY2S1 ; WCY20KY3S1 ; WCY21E71N5 ; WCY21I*BDa ; WCY21I*BDb ;
+						WCY21I*SO ; WCY21I*Tpi ; WCY21IB1S4 ; WCY21IB2S4 ; WCY21IE1S4 ; WCY21IH1S4 ; WCY21IM1S4 ;
+						WCY21IV1S4 ; WCY21IX1N1 ; WCY21IX1S0 ; WCY21IX2N1 ; WCY21IX2S0 ; WCY21IX3S0 ; WCY21IX4S0 ;
+						WCY21IX5S0 ; WCY21IX6S0 ; WCY21IY1S1 ; WCY21IY2S1 ; WCY21IY3S1 ; WCY21IY4S1 ; WCY21K*SAa ;
+						WCY21K*SAb ; WCY21KB1S4 ; WCY21KB2S4 ; WCY21KB3S4 ; WCY21KC1S4 ; WCY21KS1S4 ; WCY21KS2S4 ;
+						WCY21KT1S4 ; WCY21KX1S0 ; WCY21KX2S0 ; WCY21KX3S0 ; WCY21KX4S0 ; WCY21KX5S0 ; WCY21KX6S0 ;
+						WCY21KY1S1 ; WCY21KY2S1 ; WCY22IA2aS6 ; WCY22IA2bS6 ; WCY22IB1N2 ; WCY22IB2N2 ; WCY22IB3aS6
+						; WCY22IB3bS6 ; WCY22IBOS6 ; WCY22IE3aS6 ; WCY22IE3bS6 ; WCY22IX1N1 ; WCY22IX1N5 ;
+						WCY22IX1S0 ; WCY22IX2N1 ; WCY22IX2N5 ; WCY22IX2S0 ; WCY22IX3N1 ; WCY22IX3S0 ; WCY22IX4S0 ;
+						WCY22IX5S0 ; WCY22IY1S1 ; WCY22IY2S1 ; WCY22IY3S1 ; WCY22IY4S1 ; WCY22IY5S1 ; WCY22IZ3aS6 ;
+						WCY22IZ3bS6 ; WCY22KX1S0 ; WCY22KX2S0 ; WCY22KX3S0 ; WCY22KX4S0 ; WCY22KX5S0 ; WCY22KX6S0 ;
+						WCY22KX7S0 ; WCY22KY1S1 ; WCY22KY2S1 ; WCY22SO3S6 ; WCY22X*BBDa ; WCY22X*BDa ; WCY22X*Fiz2a
+						; WCY22X*Fiz2b ; WCY22X*M1a ; WCY22X*M2a ; WCY22X*M2b ; WCY22X*Md1a ; WCY22X*TIiKa ;
+						WME19BC1S1 ; WME19BM1S1 ; WME19BO1S1 ; WME20BE1S1 ; WME20BM1S1 ; WME20BO1S1 ; WME21BM1S4 ;
+						WME21BX1S1 ; WME21BX2S1 ; WME21BX3S1 ; WME21BX4S1 ; WME22B1N5 ; WME22BX1S1 ; WME22BX2S1 ;
+						WME22BX3S1 ; WME22BX4S1</small>
+				</section>
+				<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
+					<h3>Pokaz z objaśnieniem</h3>
+					<p><a href="https://regex101.com/r/HgaRAs/1">Przykład z cytatem</a></p>
+					<img src="assets/ss-regex-2.png" style="height: 500px;" />
+				</section>
+				<section>
+					<h3>Wprowadzenie w sytuacje taktyczna</h3>
+					<small style="text-align: left;">Firma "S" utrzymująca system do zarządzania danymi badawczymi,
+						publikacjami i pracownikami naukowymi. Pozyskała nowego klienta, który dotychczas korzystał z
+						innego rozwiązania i zaszła potrzeba migracji danych z poprzedniego systemu. W systemie firmy
+						"S" w
+						encji opisującej publikacje istnieją osobne pola oznaczające nr artykułu, nr wydania, strony,
+						wydawca itp. itd. W starym systemie wszystkie te pola znajdują się w dwóch polach tekstowych,
+						aby wyeksportować dane z tych pól, należy skorzystać z wyrażeń regularnych.</small>
+				</section>
+				<section>
+					<h3>Zadanie</h3>
+					<small style="text-align: left; margin: 20px">Z zastosowaniem <a
+							href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">dobrych
+							praktyk programistycznych</a> (lub <a
+							href="https://letmegooglethat.com/?q=good+programming+practices">to</a>) zaimplementuj
+						program korzystający z wyrażeń regularnych, który dostarczy interfejs umożliwiający rozdzielenie
+						danych szczegółowych z dwóch dostarczonych pól tekstowych. Potwierdzeniem działania programu
+						mają być testy jednostkowe przygotowane w oparciu o przykładowe dane.
+						<br />
+						<a
+							href="https://studentwat-my.sharepoint.com/:x:/g/personal/norbert_waszkowiak_wat_edu_pl/ETZxVDrlzPJEhPY7neEZ9gkB07L7tIaOt7MF9LZBSnruZg?e=a2m8Le">Plik
+							csv</a> podzielony jest na następujące kolumny:
+						<br />
+						<ol style="margin: 10px;">
+							<span class="fragment highlight-blue">
+								<li>publisher - dane wej.</li>
+								<li>details - dane wej.</li>
+							</span>
+							<span class="fragment highlight-green">
+								<li>no - dane wyj.</li>
+								<li>vol - dane wyj.</li>
+								<li>article no - dane wyj.</li>
+								<li>pages in range - dane wyj.</li>
+								<li>pages as size - dane wyj.</li>
+								<li>publisher name - dane wyj.</li>
+								<li>publisher location - dane wyj.</li>
+								<li>publisher year - dane wyj.</li>
+							</span>
+						</ol>
+						<br>
+						<br>
+						Separator: "<span class="fragment highlight-red">$</span>"
+					</small>
+				</section>
+				<section>
+					<h3>Zasady oceniania</h3>
+					<div style="text-align: left;">
+						<small style="margin: 20px;">
+							Ocenie podlegać będą:
+							<br />
+							<ol>
+								<li>Poprawność wykonania;</li>
+								<li>Samodzielność;</li>
+								<li>Zastosowanie dobrych praktyk programistycznych;</li>
+								<li>Wykorzystanie systemu kontroli wersjii.</li>
+							</ol>
+						</small>
+						<br />
+						<small class="fragment fade-right" style="margin: 20px;">
+							Program należy wykonać w jednym z następujących języków: Java, Kotlin, Scala, Python, C#,
+							C++
+						</small>
+						<br />
+						<small class="fragment fade-right" style="margin: 20px;">
+							<b>Do końca trwania laboratoriów:</b>
+							<ol>
+								<li>
+									przesłać za pomocą <a href="https://forms.office.com/r/cexRADC2at">formularza</a>
+									link
+									do utworzonego
+									<b>publicznego</b> repozytorium na github.com
+								</li>
+								<li>
+									przesłać za pomocą <a href="https://forms.office.com/r/hpspPt8nhH">formularza</a>
+									opracowane wyrażenia
+									regularne. Formularz dopuszcza dowolną liczbę wypełnień. Czas przesłania i liczba
+									odpowiedzi posłużą do
+									oceny samodzielności wykonania.
+								</li>
+							</ol>
+							<br />
+							<b><span class="fragment highlight-red">Termin oddania pracy: 10.11.2022r. godz:
+									24:00</span></b>
+						</small>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
+					<h2>Zad 2: Script engine</h2>
+				</section>
+				<section data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
+					<h3>A komu to potrzebne? A dlaczego?</h3>
+					<small style="text-align: left; margin: 20px;">Script Engine to interpretator języka programowania
+						komputerowego, którego funkcją jest interpretacja tekstu programów pochodzącego od użytkowników,
+						tłumaczenie takiego tekstu na kod maszynowy wykonywalny przez komputery oraz realizacja szeregu
+						funkcji.
+					</small>
+
+					<small style="text-align: left; margin: 20px;">W praktyce jest on wykorzystywany jako interfejs do
+						wpływania w zaawansowany (nieprzewidziany w trakcie implementacji) sposób w stan systemu
+						informatycznego. Przykładowo jest to korekcja danych znajdujących się w systemie lub wywoływanie
+						zadań znajdujących się w harmonogramie (ang. scheduling) realizujących np. integracje z
+						systemami zewnętrznymi.
+					</small>
+				</section>
+
+				<section data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
+					<h3>Pokaz z objaśnieniem</h3>
+					<img src="assets/class_diagram.png" style="height: 700px;" />
+				</section>
+				<section data-auto-animate data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
+					<h2 data-id="code-title">Reprezentacja encji w bazie NOSQL</h2>
+					<pre data-id="code-animation"><code data-trim data-line-numbers="1-14|6,11|17-28|22-26|9-14">
+						//Journal
+						{
+							"id": "1",
+							"baseScore": 100.0,
+							"title": "Biuletyn WAT",
+							"publisherId": "2",
+							"issn": "1234-5865"
+						}
+						// Publisher
+						{
+							"id": "2",
+							"name": "Wydawnictwo WAT",
+							"location": "Warszawa",
+						}
+
+
+						//Journal with Publisher
+						{
+							"id": "1",
+							"baseScore": 100.0,
+							"title": "Biuletyn WAT",
+							"publisher": {
+								"id": "2",
+								"name": "Wydawnictwo WAT",
+								"location": "Warszawa",
+							},
+							"issn": "1234-5865"
+						}
+					</code></pre>
+				</section>
+				<section data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
+					<h2>👨‍💻</h2>
+					<h3>Live coding</h3>
+				</section>
+
+				<section>
+					<div style="text-align: left;">
+						<h3>Zadanie</h3>
+						<small>Opracować aplikacje, która:
+							<ul>
+								<span class="fragment highlight-green">
+									<li>posiada przynajmniej 5 encji;</li>
+									<li>posiada api restowe realizujące przynajmniej po jednej operacji: GET, POST, PUT,
+										DELETE;</li>
+									<li>posiada system zarządzania bazą danych, który ma być umieszczony w kontenerze i
+										odpowiednio uruchomiony;</li>
+									<li>jest napisane w jednym z języków: Java, Kotlin, Scala, Python lub C#;</li>
+								</span>
+								<li>ma dostarczać dodatkowe endpoint restowy do wykonywania skryptów wpływających na
+									stan aplikacji;</li>
+								<li>ma w README.md zamieszczony przykładowy skrypt do realizacji za pomocą endpointu do
+									wykonywania skryptów. Logika skryptu ma wykraczać poza podstawowe operacje zapisu i
+									odczytu z bazy danych;</li>
+								<li>ma posiadać mechanizm wykonujący zdefiniowane zadania zgodnie z harmonogramem zadań
+									(ang. job scheduler) np. <a
+										href="https://github.com/TimeAndSpaceIO/CronScheduler">CroneScheduler</a>*;</li>
+								<li>ma dostarczać odpowiednie endpointy restowe do modyfikowania, edytowania i podglądu
+									zadań z harmonogramu;</li>
+								<li>ma w README.md zamieszczony przykładowy skrypt scheduler-owy, który w trakcie
+									wykonywania skorzysta z zewnętrznego API. Dopuszczalne jest dodanie dodatkowych
+									serwisów w aplikacji realizujących komunikacje z zewnętrznym API. W skrypcie muszą
+									znaleźć się instrukcje wpływające na wywołanie metody z zewnętrznego serwisu;*</li>
+								<li>ma w README.md zapisane wszelkie dodatkowe operacje, wraz z poleceniami uruchomienia
+									aplikacji.</li>
+							</ul>
+						</small>
+						<small style="text-align: right; font-size: 20px;">
+							* zadania wymagane przy ocenie na 5</small>
+					</div>
+
+				</section>
+				<section>
+					<h3>Zasady oceniania</h3>
+					<div style="text-align: left;">
+						<small style="margin: 10px;">
+							Ocenie podlegać będą:
+							<br />
+							<ol>
+								<li>Poprawność wykonania;</li>
+								<li>Samodzielnoś;ć</li>
+								<li>Zastosowanie dobrych praktyk programistycznych;</li>
+								<li>Wykorzystanie systemu kontroli wersjii.</li>
+							</ol>
+						</small>
+						<small style="margin: 10px;">
+							<br />
+							Do końca trwania laboratoriów należy za pomocą <a
+								href="https://forms.office.com/r/2vbjxfX0fV">formularza</a>
+							przesłać link do <b>publicznego</b> repozytorium github.com, w którym będzie opracowywane
+							zadanie.
+
+							<b><span class="fragment highlight-red">Termin oddania pracy: 15.11.2022r. godz:
+									24:00</span></b>
+						</small>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section data-background-gradient="linear-gradient(40deg, #ae9852, #a3548b)">
+					<h2>Zad 3: Code generation and manipulation</h2>
+				</section>
+				<section data-background-gradient="linear-gradient(50deg, #ae9852, #a3548b)">
+					<h3>Wprowadzam w sytuacje taktyczną</h3>
+					<small style="text-align: left; margin: 20px;">
+						Firma „A” utrzymuje duży system informatyczny do zarządzania danymi badawczymi, informacjami
+						naukowymi i pracownikami uczelni. Posiada ona dużą liczbę klientów, w tym WAT, który oczkuje, że
+						w encji opisującej autora znajdzie się pole określające jego stopień wojskowy. Zmiany takiej nie
+						można wprowadzić dla całego systemu, ponieważ większość uczelni nie oczkuje takiego pola, więc
+						zmiana musi być wyłącznie na systemie uruchomianym dla WAT.
+					</small>
+				</section>
+				<section data-background-gradient="linear-gradient(60deg, #ae9852, #a3548b)">
+					<h4>Możliwe rozwiązania</h4>
+					<p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Osobna gałąź
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Feature toggle
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Refleksja - manipulacja kodem w czasie wykonywania programu
+						</li>
+					</ul>
+					</p>
+				</section>
+				<section data-background-gradient="linear-gradient(60deg, #ae9852, #a3548b)">
+					<h2>👨‍💻</h2>
+					<h3>Live coding</h3>
+				</section>
+
+				<section>
+					<div style="text-align: left;">
+						<h3>Zadanie</h3>
+						<small>Do aplikacji z poprzedniego zadania dodać możliwość rozszerzania encji o dodatkowe pola
+							poprzez dodatkową konfigurację np. z pliku JSON, gradle.properties lub parametrów
+							systemowych. Funkcjonalność ma dodatkowo rozszerzyć klasy DTO response i request, tak aby
+							endpointy restowe obsługiwały nowe pola. W README.md należy opisać sposób, w jaki należy
+							dostarczyć do systemu konfiguracje.
+						</small>
+					</div>
+				</section>
+				<section>
+					<h3>Zasady oceniania</h3>
+					<div style="text-align: left;">
+						<small style="margin: 10px;">
+							Ocenie podlegać będą:
+							<br />
+							<ol>
+								<li>Poprawność wykonania;</li>
+								<li>Samodzielność;</li>
+								<li>Zastosowanie dobrych praktyk programistycznych;</li>
+								<li>Wykorzystanie systemu kontroli wersjii.</li>
+							</ol>
+						</small>
+						<small style="margin: 10px;">
+							Prace należy kontynuować na repozytorium z poprzedniego zadania.
+						</small>
+						<small style="margin: 10px;">
+							<b><span class="fragment highlight-red">Termin oddania pracy: ????r. godz:
+									24:00</span></b>
+						</small>
+					</div>
+
+
+				</section>
+			</section>
+
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+		});
+
+	</script>
+
+</body>
+
+</html>
