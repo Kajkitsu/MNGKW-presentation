@@ -64,7 +64,7 @@
 			</section>
 			<section>
 				<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
-					<h2>Zad 1: Wyrażenia regularne</h2>
+					<h2>Zadanie 1: Wyrażenia regularne</h2>
 				</section>
 				<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
 					<h3>A komu to potrzebne? A dlaczego?</h3>
@@ -206,9 +206,115 @@
 					</div>
 				</section>
 			</section>
+			<section data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
+				<section>
+					<h2>Zadanie 2: Kalkulator antrl</h2>
+				</section>
+				<section>
+					<h3>Co to jest i do czego służy?</h3>
+					<small>
+						ANTLR (ang. ANother Tool for Language Recognition) to narzędzie służące do tworzenia
+						kompilatorów oraz translatorów z opisu gramatyki zawierającego akcje w języku Java, C++, C# lub
+						Python.
+					</small>
+					<small>
+						Domyślnie ANTLR generuje lekser i parser w Javie, a plik z gramatyką ma rozszerzenie .g
+					</small>
+					<small>
+						<a ref="https://github.com/antlr/antlr4/tree/master/doc">Dokumentacja</a>
+					</small>
+				</section>
+				<section>
+					<h3>Wzorowy pokaz</h3>
+					<small><a href="https://github.com/antlr/grammars-v4">Gramatyki antlr4</a></small>
+					<pre style="font-size: 14px;" data-id="code-animation"><code data-trim>
+						wget https://raw.githubusercontent.com/antlr/grammars-v4/master/cpp/CPP14Lexer.g4
+						wget https://raw.githubusercontent.com/antlr/grammars-v4/master/cpp/CPP14Parser.g4
+						wget https://www.antlr.org/download/antlr-4.11.1-complete.jar
+						nano example.cpp
+						java -jar ./antlr-4.11.1-complete.jar CPP14Lexer.g4 CPP14Parser.g4
+						java -cp .:antlr-4.11.1-complete.jar org.antlr.v4.gui.TestRig CPP14 translationUnit -tree -gui example.cpp
+					</code></pre>
+
+					<pre data-id="code-animation"><code data-trim><script type="text/template">
+						#include <iostream>
+						int main()
+						{
+							std::cout << "Hello World!" << std::endl;
+							return 0;
+						}						
+					</script></code></pre>
+				</section>
+				<section>
+					<h3>Wzorowy pokaz</h3>
+					<pre data-id="code-animation"><code data-trim data-line-numbers="1|3-6|3|4|5|8-14">
+						grammar Calculator;
+
+						expr: op=('*'|'/') expr expr # MulDiv
+							| op=('+'|'-') expr expr # AddSub
+							| INT                    # Int
+							;
+						
+						INT: [0-9]+ ;
+						DOT: '.';
+						TIMES: '*' ;
+						DIV: '/' ;
+						PLUS: '+' ;
+						MINUS: '-' ;
+						WS : [ \t\r\n]+ -> skip ;
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Wzorowy pokaz</h3>
+					<pre data-id="code-animation"><code data-trim>
+						/ * 5 3 + 2 3
+					</code></pre>
+					<img src="assets/ss-diagram-example.png" style="height: 400px;" />
+				</section>
+				<section>
+					<h3>Zadanie</h3>
+					<small>
+						<ol>
+							<li>Utworzyć publiczne repozytorium na github.com. Zmieścić link w
+								<a href="https://forms.office.com/r/KKds3hSuv4">formularzu</a>
+							</li>
+							<li>Do końca zajęć laboratoryjnych za pomocą publicznie dostępnych gramatyk (Java, Python
+								lub C#), wygenerować za pomocą ANTRL4
+								drzewo składniowe dla własnego przykładowego kodu składającego się z przynajmniej jednej
+								pętli. Cały proces należy udokumentować i zamieścić w repozytorium w postaci pliku
+								zapisanego w języku
+								Markdown.</li>
+							<li>
+								Opracować gramatykę języka - kalkulatora. Zaimplementować język w wykorzystując ANTRL4.
+							</li>
+						</ol>
+					</small>
+				</section>
+				<section>
+					<h3>Zasady oceniania</h3>
+					<div style="text-align: left;">
+						<small style="margin: 10px;">
+							Ocenie podlegać będą:
+							<br />
+							<ol>
+								<li>Poprawność wykonania;</li>
+								<li>Samodzielność;</li>
+								<li>Zakres funkcjonalności kalkulatora;</li>
+								<li>Zastosowanie dobrych praktyk programistycznych;</li>
+								<li>Wykorzystanie systemu kontroli wersjii.</li>
+							</ol>
+						</small>
+						<small style="margin: 10px;">
+							<b><span class="fragment highlight-red">Termin oddania pracy: 15.11.2022r. godz:
+									24:00</span></b>
+						</small>
+					</div>
+				</section>
+			</section>
 			<section>
 				<section data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
-					<h2>Zad 2: Script engine</h2>
+					<h2>Zadanie 3: Script engine</h2>
 				</section>
 				<section data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
 					<h3>A komu to potrzebne? A dlaczego?</h3>
@@ -312,7 +418,7 @@
 							<br />
 							<ol>
 								<li>Poprawność wykonania;</li>
-								<li>Samodzielnoś;ć</li>
+								<li>Samodzielność;</li>
 								<li>Zastosowanie dobrych praktyk programistycznych;</li>
 								<li>Wykorzystanie systemu kontroli wersjii.</li>
 							</ol>
@@ -332,7 +438,7 @@
 			</section>
 			<section>
 				<section data-background-gradient="linear-gradient(40deg, #ae9852, #a3548b)">
-					<h2>Zad 3: Code generation and manipulation</h2>
+					<h2>Zadanie 4: Code generation and manipulation</h2>
 				</section>
 				<section data-background-gradient="linear-gradient(50deg, #ae9852, #a3548b)">
 					<h3>Wprowadzam w sytuacje taktyczną</h3>
